@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +12,7 @@ use App\Http\Controllers\HomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//show form nhap thong tin nguoi dung
-Route::get ('/them-nguoi-dung', [HomeController::class,'showform']); 
+
+Route::get('/', function () {
+    return view('welcome');
+});
