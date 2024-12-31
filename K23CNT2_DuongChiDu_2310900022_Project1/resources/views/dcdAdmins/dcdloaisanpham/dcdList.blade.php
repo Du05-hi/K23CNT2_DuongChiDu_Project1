@@ -1,6 +1,5 @@
 @extends('layout.admins.master')
 @section('title','Danh sách loại sản phẩm')
-
 @section('content-body')
     <div class="container border">
         <div class="row">
