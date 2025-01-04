@@ -1,2 +1,7 @@
+Hướng dẫn đăng nhập:
+- Truy cập đường link: http://127.0.0.1:8000/dcdlogin/dcd-login- Thay localhost:8000 thành host của bạn cho phù hợp
+Tài khoản đăng nhập mặc định là duongchiduj@gmail.com
+Mật khẩu: 123456a@
 
+-- Em xin cảm ơn!
 

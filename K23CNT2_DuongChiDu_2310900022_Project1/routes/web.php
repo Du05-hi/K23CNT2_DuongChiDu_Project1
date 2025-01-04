@@ -3,6 +3,8 @@
 use App\Http\Controllers\dcd_quantriController;
 use App\Http\Controllers\dcd_loaisanphamController;
 use App\Http\Controllers\dcdsanphamController;
+use App\Http\Controllers\dcdCTHOADONController;
+use App\Http\Controllers\dcdKHACHHANGController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
-route::get('/admins/dcd-login',[dcd_quantriController::class,'dcdlogin'])->name('admins.dcdlogin');
-route::post('/admins/dcd-login',[dcd_quantriController::class,'dcdloginSubmit'])->name('admins.dcdloginSubmit');
+
+Route::get('/dcdlogin/dcd-login', [dcd_quantriController::class, 'login'])->name('login');
+Route::post('/dcdlogin/dcd-login', [dcd_quantriController::class, 'loginSubmit'])->name('login.submit');
+Route::get('/dcdAdmins', function () {
+    return view('dcdAdmins'); // Trang sau khi đăng nhập thành công
+})->name('dcdAdmins');
+
+
+
 
 
 # Admin Routes
@@ -49,5 +55,23 @@ Route::get('/dcdAdmins/dcd-san-pham', [dcdsanphamController::class, 'dcdlist'])-
 Route::get('/dcdAdmins/dcd-san-pham/dcd-create', [dcdsanphamController::class, 'dcdcreate'])->name('dcdAdmins.Dcdsanpham.dcdcreate');
 Route::post('/dcdAdmins/dcd-san-pham/dcd-create', [dcdsanphamController::class, 'dcdcreateSubmit'])->name('dcdAdmins.Dcdsanpham.dcdcreateSubmit');
 
-// Route xem chi tiết sản phẩm
-Route::get('/dcdAdmins/dcd-san-pham/{id}', [dcdsanphamControllerr::class, 'dcdShow'])->name('dcdAdmins.Dcdsanpham.dcdShow');
+//hien thi sanpham
+Route::get('/dcdAdmins/dcd-san-pham/dcd-Show', [dcdsanphamController::class, 'dcdShow'])->name('dcdAdmins.Dcdsanpham.dcdShow');
+
+
+// ct hoa don
+Route::get('/dcdAdmins/dcd-cthoadon', [dcdCTHOADONController::class, 'dcdListCTHOADON'])->name('dcdAdmins.dcdcthoadon');
+
+Route::get('/dcdAdmins/dcd-cthoadon/dcd-createcthoadon', [dcdCTHOADONController::class, 'dcdCreateCTHOADON'])->name('dcdAdmins.dcdcthoadon.dcdCreateCTHOADON');
+Route::post('/dcdAdmins/dcd-cthoadon/dcd-createcthoadon', [dcdCTHOADONController::class, 'dcdCreateCTHOADONSubmit'])->name('dcdAdmins.dcdcthoadon.dcdcreateCTHOADONSubmit');
+// xem CTHOADON
+Route::get('/dcdAdmins/dcd-cthoadon/dcd-showcthoadon', [dcdCTHOADONController::class, 'dcdShowCTHOADON'])->name('dcdAdmins.dcdcthoadon.dcdShowCTHOADON');
+
+
+//khachhang
+Route::get('/dcdAdmins/dcd-khachhang', [dcdKHACHHANGController::class, 'dcdListKHACHHANG'])->name('dcdAdmins.dcdkhachhang');
+
+Route::get('/dcdAdmins/dcd-khachhang/dcd-createkhachhang', [dcdKHACHHANGController::class, 'dcdCreateKHACHHANG'])->name('dcdAdmins.dcdkhachhang.dcdCreateKHACHHANG');
+Route::post('/dcdAdmins/dcd-khachhang/dcd-createkhachhang', [dcdKHACHHANGController::class, 'dcdCreateKHACHHANGSubmit'])->name('dcdAdmins.dcdkhachhang.dcdcreateKHACHHANGSubmit');
+// xem KHACHHANG
+Route::get('/dcdAdmins/dcd-cthoadon/dcd-showkhachhang', [dcdKHACHHANGController::class, 'dcdShowKHACHHANG'])->name('dcdAdmins.dcdkhachhang.dcdShowKHACHHANG');

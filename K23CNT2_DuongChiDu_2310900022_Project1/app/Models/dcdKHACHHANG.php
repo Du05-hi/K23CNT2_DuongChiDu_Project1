@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class dcd_quantri extends Model
+class dcdKHACHHANG extends Model
 {
     use HasFactory;
 
-    protected $table="dcd_quantri";
+    protected $table = 'dcdkhachhang'; // Tên bảng trong database
 }

@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,6 +24,12 @@ class DatabaseSeeder extends Seeder
             dcd_quantriTableSeeder::class,
             dcd_loaisanphamTableSeeder::class,
             dcd_sanphamTableSeeder::class 
+        ]);
+
+
+        DB::table('dcd_quantri')->insert([
+            'email' => 'duongchiduj@gmail.com',
+            'password' => Hash::make('123456a@'),
         ]);
 
     }
